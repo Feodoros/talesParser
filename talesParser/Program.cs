@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace talesParser
@@ -15,6 +16,9 @@ namespace talesParser
             const string s4 = "https://1001rasskaz.ru/category/fmntastika";
             const string s5 = "https://1001rasskaz.ru/category/strashnye-rasskazy";
             const string s6 = "https://1001rasskaz.ru/category/smeshnye-rasskazy";
+            const string s7 = "https://1001rasskaz.ru/category/smeshnye-rasskazy/page/2";
+            const string s8 = "https://1001rasskaz.ru/category/smeshnye-rasskazy/page/3";
+
 
             ///"Просто вписываем любую категорию с этого сайта и получаем все рассказы.
             string URL = s6;
@@ -22,7 +26,9 @@ namespace talesParser
             List<string> talesURL = MakeListOfTalesURL(URL);
 
             List<string> tales = MakeListOfTales(talesURL);
-            
+
+            ///Сохраняется в папке с решением.
+            ///File.WriteAllLines("tales.txt", tales);
         }
 
         public static string CleanText (string s)
